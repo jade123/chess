@@ -1,0 +1,16 @@
+[Unit]
+Description=Xiangqi online game
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/chess
+Environment=NODE_ENV=production
+Environment=PORT=5174
+ExecStart=/usr/bin/node /var/www/chess/server.js
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target

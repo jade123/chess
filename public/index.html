@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>象棋</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar">
+        <div>
+          <h1>象棋</h1>
+          <p id="gameStatus">红方先行</p>
+        </div>
+        <div class="presence">
+          <span class="pulse"></span>
+          <strong id="onlineCount">1</strong>
+          <span>在线</span>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="side-panel">
+          <div class="mode-switch" role="tablist" aria-label="游戏模式">
+            <button class="active" id="aiModeButton" type="button">AI 模式</button>
+            <button id="onlineModeButton" type="button">对战模式</button>
+          </div>
+
+          <section class="panel-section" id="aiPanel">
+            <div class="field-row">
+              <label for="aiDepth">AI 强度</label>
+              <input id="aiDepth" type="range" min="1" max="3" step="1" value="2">
+            </div>
+            <button class="primary" id="newAiGame" type="button">新开人机局</button>
+            <button id="autoPlay" type="button">AI 自动演示</button>
+          </section>
+
+          <section class="panel-section hidden" id="onlinePanel">
+            <label class="input-label" for="playerName">棋手名</label>
+            <div class="join-row">
+              <input id="playerName" maxlength="20" value="棋手">
+              <button id="saveName" type="button">保存</button>
+            </div>
+            <div class="request-box" id="requestBox"></div>
+            <h2>在线棋手</h2>
+            <div class="player-list" id="playerList"></div>
+          </section>
+
+          <section class="panel-section">
+            <h2>本局信息</h2>
+            <dl class="meta-list">
+              <div>
+                <dt>模式</dt>
+                <dd id="modeLabel">人机</dd>
+              </div>
+              <div>
+                <dt>轮到</dt>
+                <dd id="turnLabel">红方</dd>
+              </div>
+              <div>
+                <dt>执棋</dt>
+                <dd id="sideLabel">红方</dd>
+              </div>
+            </dl>
+          </section>
+        </aside>
+
+        <section class="board-zone">
+          <div class="board-wrap">
+            <div class="river-label left">楚河</div>
+            <div class="river-label right">汉界</div>
+            <div id="board" class="board" aria-label="象棋棋盘"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/chess-rules.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
