@@ -60,6 +60,7 @@ function showStatus(text) {
 
 function renderBoard() {
   els.board.innerHTML = "";
+  renderBoardLines();
   const legalKeys = new Set(state.legalTargets.map(pos => `${pos.row}:${pos.col}`));
   const lastKeys = state.lastMove
     ? new Set([
@@ -97,6 +98,42 @@ function renderBoard() {
       els.board.append(cell);
     }
   }
+}
+
+function renderBoardLines() {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("class", "board-lines");
+  svg.setAttribute("viewBox", "0 0 8 9");
+  svg.setAttribute("preserveAspectRatio", "none");
+  svg.setAttribute("aria-hidden", "true");
+
+  const addLine = (x1, y1, x2, y2) => {
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", String(x1));
+    line.setAttribute("y1", String(y1));
+    line.setAttribute("x2", String(x2));
+    line.setAttribute("y2", String(y2));
+    svg.append(line);
+  };
+
+  for (let row = 0; row <= 9; row += 1) {
+    addLine(0, row, 8, row);
+  }
+  for (let col = 0; col <= 8; col += 1) {
+    if (col === 0 || col === 8) {
+      addLine(col, 0, col, 9);
+    } else {
+      addLine(col, 0, col, 4);
+      addLine(col, 5, col, 9);
+    }
+  }
+
+  addLine(3, 0, 5, 2);
+  addLine(5, 0, 3, 2);
+  addLine(3, 7, 5, 9);
+  addLine(5, 7, 3, 9);
+
+  els.board.append(svg);
 }
 
 function renderMeta() {

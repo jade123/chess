@@ -294,7 +294,7 @@ function serveStatic(req, res, url) {
     }[ext] || "application/octet-stream";
     res.writeHead(200, {
       "content-type": type,
-      "cache-control": ext === ".html" ? "no-store" : "public, max-age=300"
+      "cache-control": "no-store"
     });
     res.end(content);
   });
