@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>象棋</title>
-    <link rel="stylesheet" href="/style.css?v=20260629-board-fix2">
+    <link rel="stylesheet" href="/style.css?v=20260629-move-guide">
   </head>
   <body>
     <main class="app-shell">
@@ -67,6 +67,11 @@
         </aside>
 
         <section class="board-zone">
+          <div class="move-guide" aria-label="落子说明">
+            <strong>落子说明</strong>
+            <span><b>1</b> 先点自己的棋子</span>
+            <span><b>2</b> 再点红色标注的目标交点</span>
+          </div>
           <div class="board-wrap">
             <div class="river-label left">楚河</div>
             <div class="river-label right">汉界</div>
@@ -76,7 +81,7 @@
       </section>
     </main>
 
-    <script src="/chess-rules.js?v=20260629-board-fix2"></script>
-    <script src="/app.js?v=20260629-board-fix2"></script>
+    <script src="/chess-rules.js?v=20260629-move-guide"></script>
+    <script src="/app.js?v=20260629-move-guide"></script>
   </body>
 </html>

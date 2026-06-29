@@ -269,7 +269,47 @@ input:not([type]) {
 
 .board-zone {
   display: grid;
+  gap: 12px;
   justify-items: center;
+}
+
+.move-guide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  width: min(100%, 720px);
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 2px solid rgba(180, 35, 24, 0.42);
+  border-radius: 8px;
+  color: var(--red);
+  background: rgba(255, 248, 237, 0.92);
+  box-shadow: 0 8px 20px rgba(180, 35, 24, 0.11);
+}
+
+.move-guide strong {
+  font-size: 16px;
+}
+
+.move-guide span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.move-guide b {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  color: white;
+  background: var(--red);
+  font-size: 12px;
 }
 
 .board-wrap {
@@ -379,7 +419,7 @@ input:not([type]) {
 }
 
 .cell.selected .piece {
-  outline: 4px solid rgba(20, 85, 163, 0.28);
+  outline: 4px solid rgba(180, 35, 24, 0.34);
 }
 
 .cell.legal::after {
@@ -387,14 +427,14 @@ input:not([type]) {
   width: 16px;
   height: 16px;
   border-radius: 999px;
-  background: rgba(20, 85, 163, 0.32);
+  background: rgba(180, 35, 24, 0.42);
 }
 
 .cell.legal:has(.piece)::after {
   position: absolute;
   width: 94%;
   height: 94%;
-  border: 3px solid rgba(20, 85, 163, 0.48);
+  border: 3px solid rgba(180, 35, 24, 0.62);
   background: transparent;
 }
 
