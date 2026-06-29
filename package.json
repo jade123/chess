@@ -8,7 +8,7 @@
     "test": "node tests/rules.test.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=16"
   },
   "license": "MIT"
 }

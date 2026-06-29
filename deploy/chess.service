@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 WorkingDirectory=/var/www/chess
 Environment=NODE_ENV=production
-Environment=PORT=5174
+Environment=PORT=15174
 ExecStart=/usr/bin/node /var/www/chess/server.js
 Restart=always
 RestartSec=3
